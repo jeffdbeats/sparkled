@@ -4,15 +4,16 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardBody, CardTitle } from 'reactstrap';
 import { Field, FormSection, reduxForm } from 'redux-form';
-import * as paramTypes from './paramTypes';
+import BezierCurveField from '../../../../components/form/BezierCurveField';
 import ColorPickerField from '../../../../components/form/ColorPickerField';
-import MultiColorPickerField from '../../../../components/form/MultiColorPickerField';
 import InputField from '../../../../components/form/InputField';
+import MultiColorPickerField from '../../../../components/form/MultiColorPickerField';
 import SingleSelectField from '../../../../components/form/SingleSelectField/SingleSelectField';
 import { max, min, required } from '../../../../components/form/validators';
 import trash from '../../../../images/trash.svg';
 import { deleteEffect, updateEffect } from '../../actions';
 import './EffectForm.css';
+import * as paramTypes from './paramTypes';
 
 const toNumber = value => !value ? null : Number(value);
 const minStartFrame = min(0);
@@ -164,18 +165,23 @@ class EffectForm extends Component {
 
     if (param.type === paramTypes.COLOR) {
       return (
-        <Field key={param.code} name={path + '.0'} component={ColorPickerField} label={label} allowEmpty={false} required={true}
-               validate={required} onChange={this.updateEffect}/>
+        <Field key={param.code} name={path + '.0'} component={ColorPickerField} label={label} allowEmpty={false}
+               required={true} validate={required} onChange={this.updateEffect}/>
       );
     } else if (param.type === paramTypes.COLORS) {
       return (
-        <Field key={param.code} name={path} component={MultiColorPickerField} label={label} allowEmpty={false} required={true}
-               validate={required} onChange={this.updateEffect}/>
+        <Field key={param.code} name={path} component={MultiColorPickerField} label={label} allowEmpty={false}
+               required={true} validate={required} onChange={this.updateEffect}/>
+      );
+    } else if (param.type === paramTypes.CUBIC_BEZIER) {
+      return (
+        <Field key={param.code} name={path} component={BezierCurveField} label={label} allowEmpty={false}
+               required={true} validate={required} onChange={this.updateEffect}/>
       );
     } else {
       return (
-        <Field key={param.code} name={path + '.0'} component={InputField} label={label} allowEmpty={false} required={true}
-               validate={required} onChange={this.updateEffect}/>
+        <Field key={param.code} name={path + '.0'} component={InputField} label={label} allowEmpty={false}
+               required={true} validate={required} onChange={this.updateEffect}/>
       );
     }
   }
@@ -198,13 +204,13 @@ class EffectForm extends Component {
         _.set(draft, path.split('.'), newValue);
 
         if (path === 'type') {
-          const newType = _.find(effectTypes, { code: newValue});
+          const newType = _.find(effectTypes, { code: newValue });
           draft.args = this.convertParamsToArguments(newType.params);
         } else if (path === 'fill.type') {
-          const newFill = _.find(fillTypes, { code: newValue});
+          const newFill = _.find(fillTypes, { code: newValue });
           draft.fill.args = this.convertParamsToArguments(newFill.params);
         } else if (path === 'easing.type') {
-          const newEasing = _.find(easingTypes, { code: newValue});
+          const newEasing = _.find(easingTypes, { code: newValue });
           draft.easing.args = this.convertParamsToArguments(newEasing.params);
         }
       });

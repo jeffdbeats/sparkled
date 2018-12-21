@@ -2,6 +2,7 @@ package io.sparkled.renderer.easing
 
 import io.sparkled.model.animation.easing.EasingTypeCode
 import io.sparkled.renderer.easing.function.LinearEasing
+import io.sparkled.renderer.easing.function.bezier.CubicBezierEasing
 import io.sparkled.renderer.easing.function.expo.ExpoOutEasing
 import java.util.HashMap
 
@@ -10,6 +11,7 @@ object EasingFunctions {
     private val functions = HashMap<EasingTypeCode, EasingFunction>()
 
     init {
+        functions[EasingTypeCode.CUBIC_BEZIER] = CubicBezierEasing()
         functions[EasingTypeCode.EXPO_OUT] = ExpoOutEasing()
         functions[EasingTypeCode.LINEAR] = LinearEasing()
     }

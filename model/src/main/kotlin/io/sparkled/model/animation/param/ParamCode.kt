@@ -6,6 +6,7 @@ enum class ParamCode constructor(val displayName: String) {
     BRIGHTNESS("Brightness (%)"),
     COLOR("Color"),
     COLORS("Colors"),
+    CONTROL_POINTS("Control Points"),
     CYCLE_COUNT("Cycle Count"),
     CYCLES_PER_SECOND("Cycles Per Second"),
     DENSITY("Density (%)"),
@@ -14,5 +15,5 @@ enum class ParamCode constructor(val displayName: String) {
     PERCENT_FROM("From (%)"),
     PERCENT_TO("To (%)"),
     RANDOM_SEED("Random Seed"),
-    SEGMENTS("Number of Segments"),
+    SEGMENTS("Number of Segments")
 }

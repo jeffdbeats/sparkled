@@ -5,6 +5,7 @@
   "dependencies": {
     "Raphael.FreeTransform": "git+https://github.com/AliasIO/Raphael.FreeTransform.git",
     "axios": "^0.18.0",
+    "bezier-easing-editor": "^0.7.0",
     "bootswatch": "^4.1.2",
     "date-fns": "^1.29.0",
     "immer": "^1.7.2",

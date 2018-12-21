@@ -23,6 +23,6 @@ class FloatArrayMatcher internal constructor(private val values: FloatArray) : T
     }
 
     private fun floatArrayToString(array: FloatArray): String {
-        return array.joinToString(", ") { "%.3f".format(it) }
+        return array.joinToString(", ") { "%.2f".format(it) }
     }
 }

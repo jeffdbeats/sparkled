@@ -8,6 +8,11 @@ enum class EasingTypeCode(val displayName: String) {
     NONE("None"),
 
     /**
+     * A custom cubic bezier curve.
+     */
+    CUBIC_BEZIER("Cubic Bezier"),
+
+    /**
      * An easing with very fast acceleration.
      */
     EXPO_OUT("Exponential (Out)"),

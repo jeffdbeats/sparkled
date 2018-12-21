@@ -2,6 +2,11 @@ import React from 'react';
 import { CompactPicker } from 'react-color';
 import './ColorPicker.css';
 
+const SWATCH_COLORS = [
+  '#FFF', '#F00', '#0F0', '#00F', '#FF0', '#F0F', '#0FF', '#FC0', '#6FF', '#69F', '#AEA1FF', '#FDA1FF',
+  '#CCC', '#C00', '#0C0', '#00C', '#CC0', '#C0C', '#0CC', '#F90', '#3CC', '#36C', '#7B64FF', '#FA28FF',
+  '#000', '#900', '#090', '#009', '#990', '#909', '#099', '#F60', '#399', '#039', '#653294', '#AB149E'];
+
 class ColorPicker extends React.Component {
   state = { displayColorPicker: false, color: null };
 
@@ -18,7 +23,7 @@ class ColorPicker extends React.Component {
     const colorPicker = !this.state.displayColorPicker ? null : (
       <div className="popover">
         <div className="cover" onClick={this.closeColorPicker}/>
-        <CompactPicker color={color} onChange={this.changeColor}/>
+        <CompactPicker colors={SWATCH_COLORS} color={color} onChange={this.changeColor}/>
       </div>
     );
 

@@ -38,4 +38,14 @@ object MathUtils {
     fun constrain(value: Int, min: Int, max: Int): Int {
         return Math.max(min, Math.min(max, value))
     }
+
+    /**
+     * @param value the value to be constrained
+     * @param min the minimum allowable value (inclusive)
+     * @param max the maximum allowable value (inclusive)
+     * @return the value, constrained by min and max
+     */
+    fun constrain(value: Float, min: Float, max: Float): Float {
+        return Math.max(min, Math.min(max, value))
+    }
 }

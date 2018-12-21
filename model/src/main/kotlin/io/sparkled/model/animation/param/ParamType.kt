@@ -18,6 +18,11 @@ enum class ParamType {
     COLORS,
 
     /**
+     * A pair of (x, y) coordinates for a cubic bezier curve's control points, stored as an array of floats.
+     */
+    CUBIC_BEZIER,
+
+    /**
      * A number, either whole or fractional.
      */
     DECIMAL,
