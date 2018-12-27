@@ -1,9 +1,11 @@
 package io.sparkled.rest.service.song
 
+import com.google.gson.JsonSyntaxException
 import io.sparkled.persistence.song.SongPersistenceService
 import io.sparkled.persistence.transaction.Transaction
 import io.sparkled.rest.response.IdResponse
 import io.sparkled.rest.service.RestServiceHandler
+import io.sparkled.viewmodel.exception.ViewModelConversionException
 import io.sparkled.viewmodel.song.SongViewModel
 import io.sparkled.viewmodel.song.SongViewModelConverter
 import java.io.ByteArrayOutputStream
@@ -20,7 +22,7 @@ class SongRestServiceHandler
 
     fun createSong(songViewModelJson: String, inputStream: InputStream): Response {
         return transaction.of {
-            val songViewModel = gson.fromJson(songViewModelJson, SongViewModel::class.java)
+            val songViewModel = getSongViewModel(songViewModelJson)
             songViewModel.setId(null)
 
             var song = songViewModelConverter.toModel(songViewModel)
@@ -28,6 +30,14 @@ class SongRestServiceHandler
             song = songPersistenceService.createSong(song, audioData)
 
             return@of respondOk(IdResponse(song.getId()!!))
+        }
+    }
+
+    private fun getSongViewModel(songViewModelJson: String): SongViewModel {
+        try {
+            return gson.fromJson(songViewModelJson, SongViewModel::class.java)
+        } catch (e: JsonSyntaxException) {
+            throw ViewModelConversionException("Song data is invalid.", e)
         }
     }
 
