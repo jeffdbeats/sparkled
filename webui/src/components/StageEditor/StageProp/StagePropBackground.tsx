@@ -8,7 +8,7 @@ const padding = 5;
 
 type InteractionEvent = PIXI.interaction.InteractionEvent;
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   /** The parent container that manages the stage prop. */
   parent: PIXI.Container;
 

@@ -7,7 +7,7 @@ import * as StagePropPart from "./StagePropPart";
 const lineWidth = 3;
 const lineColor = 0xffffff;
 
-declare interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   /** The parent container that manages the stage prop. */
   parent: PIXI.Container;
 

@@ -7,7 +7,6 @@ import schedulerReducer from './Scheduler/reducer';
 import sequenceEditReducer from './SequenceEdit/reducer';
 import sequenceListReducer from './SequenceList/reducer';
 import songListReducer from './SongList/reducer';
-import stageListReducer from './StageList/reducer';
 
 const undoableFilter = action => action.undoable === true;
 
@@ -34,7 +33,6 @@ const sharedReducer = (state = initialState, action) => {
 
 export default combineReducers({
   shared: sharedReducer,
-  stageList: stageListReducer,
   songList: songListReducer,
   sequenceEdit: undoable(sequenceEditReducer, { filter: undoableFilter }),
   sequenceList: sequenceListReducer,

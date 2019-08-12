@@ -1,3 +1,8 @@
+export class StageSearchViewModel {
+  public id: number = 0;
+  public name: string = "";
+}
+
 export class StageViewModel {
   public id: number | null = null;
   public name: string = "";

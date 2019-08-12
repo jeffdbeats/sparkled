@@ -3,11 +3,11 @@ import {find, isEmpty} from "lodash";
 import React, {HTMLAttributes, useContext, useEffect} from "react";
 import useForm from "react-hook-form";
 import {POSITIVE_INTEGER} from "../../../../utils/regexes";
-import {DispatchContext, StateContext} from "../../Reducer";
+import {StageEditorDispatchContext, StageEditorStateContext} from "../../StageEditorReducer";
 
 const StagePropDetails: React.FC<HTMLAttributes<void>> = props => {
-  const state = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
+  const state = useContext(StageEditorStateContext);
+  const dispatch = useContext(StageEditorDispatchContext);
 
   const {register, errors, reset, setValue, watch} = useForm({mode: "onChange"});
 

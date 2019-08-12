@@ -1,9 +1,7 @@
 import React from "react";
 import largeLogo from "./logo-large.svg";
 
-declare interface Props {
-  className: string;
-}
+interface Props extends React.HTMLAttributes<HTMLElement> {}
 
 const AppLogo: React.FC<Props> = (props: Props) => {
   return <img className={props.className} src={largeLogo} alt="Sparkled"/>;

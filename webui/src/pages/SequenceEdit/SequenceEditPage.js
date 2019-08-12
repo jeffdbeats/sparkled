@@ -97,7 +97,7 @@ class SequenceEditPage extends Component {
       </div>
     );
 
-    return <PageContainer body={pageBody} navbar={this.renderNavbar()} className="sequence-editor"/>;
+    return <PageContainer children={pageBody} navbar={this.renderNavbar()} className="sequence-editor"/>;
   }
 
   renderNavbar() {

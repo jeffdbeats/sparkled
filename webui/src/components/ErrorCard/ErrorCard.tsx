@@ -3,7 +3,7 @@ import {makeStyles} from "@material-ui/styles";
 import React from "react";
 import {Link} from "react-router-dom";
 
-declare interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   title: string;
   body: string;
   linkUrl: string;

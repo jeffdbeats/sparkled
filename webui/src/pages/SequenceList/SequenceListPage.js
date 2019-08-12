@@ -69,7 +69,7 @@ class SequenceListPage extends Component {
       </div>
     );
 
-    return <PageContainer body={pageBody}/>;
+    return <PageContainer children={pageBody}/>;
   }
 
   renderContent() {
@@ -141,9 +141,9 @@ function mapStateToProps({ page: { sequenceList, songList, stageList } }) {
     sequences: sequenceList.sequences,
     fetching: sequenceList.fetching,
     fetchError: sequenceList.fetchError,
-    stages: stageList.stages,
-    fetchingStages: stageList.fetching,
-    fetchStagesError: stageList.fetchError,
+    stages: [],
+    fetchingStages: false,
+    fetchStagesError: null,
     songs: songList.songs,
     fetchingSongs: songList.fetching,
     fetchSongsError: songList.fetchError,

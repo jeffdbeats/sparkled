@@ -61,7 +61,7 @@ class PageContainer extends Component {
   state = { drawerOpen: false };
 
   render() {
-    const { classes, body, actions } = this.props;
+    const { classes, children, actions } = this.props;
 
     const drawer = (
       <>
@@ -130,7 +130,7 @@ class PageContainer extends Component {
         </nav>
 
         <main className={`${classes.content} ${this.props.className || ''}`}>
-          {body}
+          {children}
         </main>
       </>
     );

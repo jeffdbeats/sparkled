@@ -54,9 +54,9 @@ class DeleteStageModal extends Component {
 
 function mapStateToProps({ page: { stageList } }) {
   return {
-    stageToDelete: stageList.stageToDelete,
-    deleting: stageList.deleting,
-    deleteError: stageList.deleteError
+    stageToDelete: null,
+    deleting: false,
+    deleteError: null
   };
 }
 

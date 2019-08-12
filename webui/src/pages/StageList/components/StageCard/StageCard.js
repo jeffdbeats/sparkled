@@ -52,8 +52,8 @@ class StageCard extends Component {
 
 function mapStateToProps({ page: { stageList } }) {
   return {
-    stageToDelete: stageList.stageToDelete,
-    deleting: stageList.deleting
+    stageToDelete: null,
+    deleting: false
   };
 }
 

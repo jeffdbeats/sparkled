@@ -5,14 +5,14 @@ import {Point, SvgPathProperties, svgPathProperties} from "svg-path-properties";
 import stagePropTypes from "../../../pages/StageEdit/stagePropTypes";
 import {StagePropViewModel} from "../../../types/ViewModel";
 import Logger from "../../../utils/Logger";
-import {DispatchContext} from "../Reducer";
+import {StageEditorDispatchContext} from "../StageEditorReducer";
 import StagePropBackground from "./StagePropBackground";
 import StagePropPath from "./StagePropPath";
 import StagePropRotateHandle from "./StagePropRotateHandle";
 
 const logger = new Logger("StageProp");
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   /** The PIXI application used to render the stage canvas. */
   pixiApp: PIXI.Application;
 
@@ -39,7 +39,7 @@ interface State {
 
 const StageProp: React.FC<Props> = props => {
   const [state] = useState<State>(() => initState(props.pixiApp, props.stageProp));
-  const dispatch = useContext(DispatchContext);
+  const dispatch = useContext(StageEditorDispatchContext);
 
   const {pixiContainer, width, height, points} = state;
 

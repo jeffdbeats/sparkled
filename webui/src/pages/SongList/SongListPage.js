@@ -58,7 +58,7 @@ class SongListPage extends Component {
       </div>
     );
 
-    return <PageContainer body={pageBody}/>;
+    return <PageContainer children={pageBody}/>;
   }
 
   renderContent() {
